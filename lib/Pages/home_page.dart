@@ -41,11 +41,19 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_title),
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {
-
-          }
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.only(),
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.white,
+              ),
+              accountName: Text("xxx"),
+              accountEmail: Text("xxxxxxx@xxx.com"),
+            ),
+          ],
         ),
       ),
       body: Container(
