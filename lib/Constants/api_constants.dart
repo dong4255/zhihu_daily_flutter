@@ -6,3 +6,4 @@ const String kLatestNewsUrl = '/news/latest';
 const String kBeforeNewsUrl = '/news/before/';
 
 const String kNewsDetailUrl = '/news/';
+

@@ -9,6 +9,7 @@ import 'package:zhihu_daily_flutter/ApiRequest/api_requester.dart';
 import 'package:zhihu_daily_flutter/Widgets/home_row_item.dart';
 import 'news_detail_page.dart';
 
+
 class HomePage extends StatefulWidget {
 
   @override
@@ -205,4 +206,14 @@ class _HomePageState extends State<HomePage> {
       _isLoading = false;
     }
   }
+
+
+  /*
+  * 格式化日期
+  * */
+  String _formatDateString(String date) {
+    final dateTime = DateTime.parse(date);
+    
+  }
+
 }
