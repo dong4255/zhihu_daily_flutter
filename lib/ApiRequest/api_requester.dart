@@ -30,7 +30,7 @@ class ApiRequester {
     try {
       final Response<Map<String, dynamic>> response = await _dio.get(
           kLatestNewsUrl);
-      print(response.data);
+      // print(response.data);
       return News.fromJson(response.data);
     } catch (e) {
       return Future.error(e);
@@ -40,7 +40,7 @@ class ApiRequester {
   Future<News> getBeforeNews(String date) async {
     try {
       final Response<Map<String, dynamic>> response = await _dio.get(kBeforeNewsUrl + date);
-      print(response.data);
+      // print(response.data);
       return News.fromJson(response.data);
     } catch (e) {
       return Future.error(e);
@@ -50,7 +50,7 @@ class ApiRequester {
   Future<NewsDetail> getNewsDetail(int id) async {
     try {
       final Response<Map<String, dynamic>> response = await _dio.get(kNewsDetailUrl + '$id');
-//      print(response.data);
+     // print(response.data);
       return NewsDetail.fromJson(response.data);
     } catch (e) {
       return Future.error(e);

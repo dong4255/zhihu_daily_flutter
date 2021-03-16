@@ -1,9 +1,11 @@
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'dart:io';
 
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:flutter_inappbrowser/flutter_inappbrowser.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'package:zhihu_daily_flutter/ApiRequest/api_requester.dart';
@@ -53,13 +55,13 @@ class _NewsDetailPageState extends State<NewsDetailPage> {
       return Container();
     }
     if (_htmlString == null) {
-      return InAppWebView(initialUrl: _newsDetail.share_url,);
+      return InAppWebView(initialUrlRequest: URLRequest(url: Uri.parse(_newsDetail.share_url)),);
     }
 
     return Stack(
       children: <Widget>[
         InAppWebView(
-          initialData: InAppWebViewInitialData(_htmlString),
+          initialData: InAppWebViewInitialData(data: _htmlString),
         ),
 
       ],
@@ -144,6 +146,7 @@ class _NewsDetailPageState extends State<NewsDetailPage> {
       ''';
         _htmlString = htmlString;
       }
+      print(_htmlString);
       setState(() {
 
       });
@@ -153,19 +156,19 @@ class _NewsDetailPageState extends State<NewsDetailPage> {
   }
 
 
-  Future<File> _getLocalHtmlFile() async {
-    final dir = (await getApplicationDocumentsDirectory()).path;
-    return File('$dir/$fileName');
-  }
-
-  void _writeHtmlFile(String htmlString) async {
-    final file = await _getLocalHtmlFile();
-    final afterFile = await file.writeAsString(htmlString);
-    setState(() {
-      _htmlUrl = afterFile.uri.toString();
-    });
-    print(_htmlUrl);
-    print(_newsDetail.share_url);
-    print(_htmlString);
-  }
+  // Future<File> _getLocalHtmlFile() async {
+  //   final dir = (await getApplicationDocumentsDirectory()).path;
+  //   return File('$dir/$fileName');
+  // }
+  //
+  // void _writeHtmlFile(String htmlString) async {
+  //   final file = await _getLocalHtmlFile();
+  //   final afterFile = await file.writeAsString(htmlString);
+  //   setState(() {
+  //     _htmlUrl = afterFile.uri.toString();
+  //   });
+  //   print(_htmlUrl);
+  //   print(_newsDetail.share_url);
+  //   print(_htmlString);
+  // }
 }
