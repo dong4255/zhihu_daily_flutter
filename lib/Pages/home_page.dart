@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   var _title = '今日热闻';
   var _topStoryList = <Story>[];
   final _swiperController = SwiperController();
-  var _dataList = List();
+  var _dataList = [];
   var _latestDate = '';
 
   var _isRefreshing = false;

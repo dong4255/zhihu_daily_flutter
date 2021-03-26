@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dong.zhihu_daily_flutter">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
+        android:usesCleartextTraffic="true"
         android:label="zhihu_daily_flutter"
         android:icon="@mipmap/ic_launcher">
         <activity
